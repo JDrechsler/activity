@@ -1,0 +1,36 @@
+{
+  "theme_color": "#0c8554",
+  "background_color": "#0c8554",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "description": "Activity Game",
+  "short_name": "Activity",
+  "name": "Activity",
+  "icons": [
+    {
+      "src": "./static/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./static/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./static/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./static/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
