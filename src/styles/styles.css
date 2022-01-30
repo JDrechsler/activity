@@ -1,0 +1,106 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  padding: 0
+}
+
+body{
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+*,:after,:before {
+  box-sizing: border-box
+}
+
+a {
+  text-decoration: none
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
+  display: block
+}
+
+audio,canvas,video {
+  display: inline-block
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0
+}
+
+[hidden] {
+  display: none
+}
+
+body,dd,dl,html,menu,ol,ul {
+  margin: 0
+}
+
+menu,ol,ul {
+  padding: 0
+}
+
+nav ol,nav ul {
+  list-style: none;
+  list-style-image: none
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic
+}
+
+form {
+  margin: 0
+}
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  *margin-left: -7px
+}
+
+button,input,select,textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle
+}
+
+button,input {
+  line-height: normal
+}
+
+button,html input[type=button],input[type=reset],input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer
+}
+
+button[disabled],input[disabled] {
+  cursor: default
+}
+
+input[type=checkbox],input[type=radio] {
+  padding: 0
+}
+
+input[type=search] {
+  -webkit-appearance: textfield
+}
+
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+  border: 0;
+  padding: 0
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top
+}
