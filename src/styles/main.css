@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-activity-teal: #067F73;
+  --color-activity-teal-light: #0aa395;
+  --color-activity-orange: #EB9838;
+  --color-activity-yellow: #F7EF00;
+  --color-activity-cream: #E4FFF1;
+  --color-activity-teal-dark: #045a52;
+}
+
+html, body {
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
