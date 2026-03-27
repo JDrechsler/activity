@@ -15,7 +15,12 @@ const { isFullscreen, toggle: toggleFullscreen } = useFullscreen()
     </div>
 
     <h1 class="text-4xl font-bold text-white mb-2">Activity</h1>
-    <p class="text-activity-cream/80 text-lg mb-12">Draw. Explain. Act. Learn!</p>
+    <p class="text-activity-cream/80 text-lg mb-4">Draw. Explain. Act. Learn!</p>
+
+    <p class="text-activity-cream/60 text-sm max-w-xs mb-10 leading-relaxed">
+      Take turns drawing, explaining or acting out words while others guess.
+      Every card is in English and Spanish — have fun and learn a new language at the same time!
+    </p>
 
     <button
       @click="router.push('/setup')"
