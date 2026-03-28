@@ -1,1 +1,0 @@
-{"root":["./src/main.ts","./src/router.ts","./src/composables/usefullscreen.ts","./src/composables/usetimer.ts","./src/data/words.ts","./src/stores/gamestore.ts","./src/types/game.ts","./src/app.vue","./src/views/gameboardview.vue","./src/views/setupview.vue","./src/views/turnview.vue","./src/views/welcomeview.vue","./src/views/winnerview.vue","./env.d.ts"],"version":"5.7.3"}
