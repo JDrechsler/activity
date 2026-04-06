@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useGameStore } from '../stores/gameStore'
-import { CATEGORIES, CATEGORY_LABELS } from '../types/game'
-import type { Difficulty, Vibe, Category } from '../types/game'
+import { CATEGORIES, CATEGORY_LABELS, ACTION_COLORS, ACTION_LABELS } from '../types/game'
+import type { Difficulty, Vibe, Category, ActionType } from '../types/game'
 
 const store = useGameStore()
-const step = ref<'players' | 'teams' | 'settings'>('players')
+const step = ref<'players' | 'teams' | 'settings' | 'modes'>('players')
 const newPlayerName = ref('')
 
 const canProceedFromPlayers = computed(() => store.players.length >= 2)
@@ -18,6 +18,18 @@ const allPlayersAssigned = computed(() => {
 const canStart = computed(() => {
   return store.settings.selectedCategories.length > 0 && store.availableCards.length > 0
 })
+
+const allActions: ActionType[] = ['draw', 'explain', 'act']
+
+function toggleAction(action: ActionType) {
+  const idx = store.settings.selectedActions.indexOf(action)
+  if (idx >= 0) {
+    if (store.settings.selectedActions.length === 1) return
+    store.settings.selectedActions.splice(idx, 1)
+  } else {
+    store.settings.selectedActions.push(action)
+  }
+}
 
 const newTeamName = ref('')
 
@@ -309,6 +321,45 @@ const timerOptions = [30, 45, 60, 90, 120]
 
       <button
         :disabled="!canStart"
+        @click="step = 'modes'"
+        class="bg-activity-teal text-white font-bold text-lg py-4 rounded-xl disabled:opacity-40 active:scale-95 transition-transform"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- STEP: Modes -->
+    <div v-if="step === 'modes'" class="flex flex-col gap-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-activity-cream">Game Modes</h2>
+        <button @click="step = 'settings'" class="text-gray-400 text-sm">Back</button>
+      </div>
+
+      <p class="text-gray-400 text-sm">Choose which action types to include in the game.</p>
+
+      <div class="flex flex-col gap-3">
+        <button
+          v-for="action in allActions"
+          :key="action"
+          @click="toggleAction(action)"
+          :class="[
+            'py-4 rounded-xl font-bold text-lg transition-all active:scale-95',
+            store.settings.selectedActions.includes(action)
+              ? 'text-gray-900'
+              : 'bg-gray-800 text-gray-500'
+          ]"
+          :style="store.settings.selectedActions.includes(action) ? { backgroundColor: ACTION_COLORS[action] } : {}"
+        >
+          {{ ACTION_LABELS[action] }}
+        </button>
+      </div>
+
+      <p v-if="store.settings.selectedActions.length === 0" class="text-red-400 text-sm">
+        At least one mode must be selected
+      </p>
+
+      <button
+        :disabled="store.settings.selectedActions.length === 0"
         @click="store.startGame()"
         class="bg-activity-teal text-white font-bold text-lg py-4 rounded-xl disabled:opacity-40 active:scale-95 transition-transform"
       >

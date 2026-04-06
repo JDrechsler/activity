@@ -31,6 +31,7 @@ export const useGameStore = defineStore('game', () => {
     timerDuration: 60,
     vibe: 'mixed',
     selectedCategories: [...CATEGORIES],
+    selectedActions: ['draw', 'explain', 'act'],
   })
   const currentTeamIndex = ref(0)
   const currentTurn = ref<TurnState | null>(null)
@@ -135,7 +136,8 @@ export const useGameStore = defineStore('game', () => {
     const team = currentTeam.value
     if (!team) return
 
-    const action = ACTIONS[Math.floor(Math.random() * ACTIONS.length)]
+    const pool = settings.value.selectedActions.length > 0 ? settings.value.selectedActions : ACTIONS
+    const action = pool[Math.floor(Math.random() * pool.length)]
     const card = pickCard()
     if (!card) return
 
@@ -191,6 +193,7 @@ export const useGameStore = defineStore('game', () => {
       timerDuration: 60,
       vibe: 'mixed',
       selectedCategories: [...CATEGORIES],
+      selectedActions: ['draw', 'explain', 'act'],
     }
     router.push('/')
   }

@@ -61,6 +61,7 @@ export interface GameSettings {
   timerDuration: number
   vibe: Vibe
   selectedCategories: Category[]
+  selectedActions: ActionType[]
 }
 
 export const TEAM_COLORS = [
